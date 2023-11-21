@@ -1,12 +1,3 @@
-// Write a program in solidity to create Customer data. Use the following constructs:
-// • Structures
-// • Arrays
-// • Fallback
-// Deploy this as smart contract on Ethereum and Observe the transaction fee and Gas values
-
-
-code-
-
 //SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.7.0 <0.9.0;
 
