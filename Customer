@@ -1,0 +1,60 @@
+// Write a program in solidity to create Customer data. Use the following constructs:
+// • Structures
+// • Arrays
+// • Fallback
+// Deploy this as smart contract on Ethereum and Observe the transaction fee and Gas values
+
+
+code-
+
+//SPDX-License-Identifier: UNLICENSED
+pragma solidity >=0.7.0 <0.9.0;
+
+// Build the Contract
+contract CustomerManagmtSys {
+    // Create a structure for
+    // Customer details
+    struct CustomerStruct {
+        uint256 ID;
+        string fName;
+        string lName;
+        uint256 contactNumber;
+        string customerAddress;
+    }
+    address owner;
+    uint256 public stdCount = 0;
+    //Create Array to store Employee data
+    CustomerStruct[] stdRecords;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    // Create a function to add
+    // the new records
+    function addNewRecords(
+        uint256 _ID,
+        string memory _fName,
+        string memory _lName,
+        uint256 _contactNumber,
+        string memory _customerAddress
+    ) public payable {
+        //fallback function
+        // Increase the count by 1
+        stdCount = stdCount + 1;
+        //Adding data into array
+        stdRecords.push(
+            CustomerStruct(
+                _ID,
+                _fName,
+                _lName,
+                _contactNumber,
+                _customerAddress
+            )
+        );
+    }
+
+    function getAllRecords() public view returns (CustomerStruct[] memory) {
+        return stdRecords;
+    }
+}
